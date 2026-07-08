@@ -8,7 +8,7 @@ Built with **FastAPI**, **SQLAlchemy**, **SQLite**.
 
 ```bash
 git clone <repo-url>
-cd travel-planner
+cd Travel_planner
 docker compose up --build
 ```
 
