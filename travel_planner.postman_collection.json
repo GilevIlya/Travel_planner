@@ -1,0 +1,216 @@
+{
+  "info": {
+    "name": "Travel Planner API",
+    "description": "API collection for Travel Planner application with Art Institute Chicago API integration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Artworks (Art Institute API)",
+      "item": [
+        {
+          "name": "Search Artworks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/artworks/search?title=sunflowers&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "artworks", "search"],
+              "query": [
+                { "key": "title", "value": "sunflowers" },
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Create Project with Artworks",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Art Museum Tour\",\n  \"description\": \"Visiting famous artworks\",\n  \"start_date\": \"2025-06-01\",\n  \"places\": [27992, 28563]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects"]
+            }
+          }
+        },
+        {
+          "name": "Create Project without Places",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Europe Trip 2025\",\n  \"description\": \"Summer vacation\",\n  \"start_date\": \"2025-06-01\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects"]
+            }
+          }
+        },
+        {
+          "name": "List Projects",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects?page=1&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Project",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Art Tour\",\n  \"description\": \"Extended visit\",\n  \"start_date\": \"2025-07-01\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Places",
+      "item": [
+        {
+          "name": "Add Artwork to Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"external_id\": 27992\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1/places",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1", "places"]
+            }
+          }
+        },
+        {
+          "name": "List Places in Project",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1/places?page=1&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1", "places"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Place",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1/places/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1", "places", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Place (Notes & Visited)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Beautiful painting, must see!\",\n  \"is_visited\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/projects/1/places/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "projects", "1", "places", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}

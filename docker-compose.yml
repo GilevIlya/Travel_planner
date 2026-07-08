@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./travel_planner.db:/app/travel_planner.db
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./travel_planner.db
