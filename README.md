@@ -1,35 +1,29 @@
 # Travel Planner API
-
 A management application for planning trips with artworks from the **Art Institute of Chicago API**.
-
 Built with **FastAPI**, **SQLAlchemy**, **SQLite**.
 
 ## Quick Start
-
 ```bash
 git clone <repo-url>
 cd Travel_planner
 docker compose up --build
 ```
-
-API будет доступен на `http://localhost:8000`.
+The API will be available at `http://localhost:8000`.
 
 **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Endpoints
-
-| Метод | URL | Описание |
+| Method | URL | Description |
 |-------|-----|----------|
-| `GET` | `/api/v1/artworks/search?title=...` | Поиск картин в Art Institute Chicago |
-| `POST` | `/api/v1/projects` | Создать проект (c местами или без) |
-| `GET` | `/api/v1/projects` | Список проектов |
-| `GET` | `/api/v1/projects/{id}` | Получить проект |
-| `PATCH` | `/api/v1/projects/{id}` | Обновить проект |
-| `DELETE` | `/api/v1/projects/{id}` | Удалить проект |
-| `POST` | `/api/v1/projects/{id}/places` | Добавить место (artwork) |
-| `GET` | `/api/v1/projects/{id}/places` | Список мест |
-| `PATCH` | `/api/v1/projects/{id}/places/{place_id}` | Обновить место (notes/visited) |
+| `GET` | `/api/v1/artworks/search?title=...` | Search artworks in the Art Institute of Chicago |
+| `POST` | `/api/v1/projects` | Create a project (with or without places) |
+| `GET` | `/api/v1/projects` | List projects |
+| `GET` | `/api/v1/projects/{id}` | Get a project |
+| `PATCH` | `/api/v1/projects/{id}` | Update a project |
+| `DELETE` | `/api/v1/projects/{id}` | Delete a project |
+| `POST` | `/api/v1/projects/{id}/places` | Add a place (artwork) |
+| `GET` | `/api/v1/projects/{id}/places` | List places |
+| `PATCH` | `/api/v1/projects/{id}/places/{place_id}` | Update a place (notes/visited) |
 
 ## Postman
-
-Импортируй `travel_planner.postman_collection.json` в Postman.
+Import `travel_planner.postman_collection.json` into Postman.
